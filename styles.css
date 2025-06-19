@@ -249,38 +249,48 @@ nav {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 150px;
+    padding: 0 200px; /* Increased horizontal padding */
 }
 
 .hero-content {
     max-width: 1000px;
 }
 
+.name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 0.25rem; /* Preserve spacing to tagline */
+}
+
 .greeting {
     color: var(--green);
-    font-size: 1rem;
-    margin-bottom: -0.8rem;
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: normal;
+    padding-left: 5px; /* Nudge to the right */
 }
 
 .name {
     color: var(--lightest-slate);
     font-size: 4.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 0;
+    line-height: 1.1;
 }
 
 .tagline {
     color: var(--slate);
-    font-size: 4rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
+    font-size: 3.5rem; /* Adjusted for hierarchy */
+    font-weight: 700;
+    margin-bottom: 2rem; /* Adjusted for spacing */
 }
 
 .description {
     color: var(--slate);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     max-width: 540px;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem; /* Adjusted for spacing */
 }
 
 .cta-primary {
@@ -486,6 +496,16 @@ nav {
 
     .hero {
         padding: 0 25px;
+    }
+
+
+
+    .tagline {
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        margin-bottom: 2.5rem;
     }
 
     .name {
@@ -823,10 +843,10 @@ nav {
 
 .job-description li {
     position: relative;
-    padding-left: 30px;
+    padding-left: 50px;
     margin-bottom: 1rem;
     color: var(--slate);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     max-width: 100%;
 }
@@ -1028,7 +1048,8 @@ nav {
 }
 
 .project-image:hover img {
-    transform: translateY(-3px);
+    filter: grayscale(0%) brightness(1);
+    mix-blend-mode: normal;
 }
 
 .project-image a {

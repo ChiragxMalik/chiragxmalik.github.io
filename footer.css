@@ -1,0 +1,36 @@
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 25px 0;
+    color: var(--slate);
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    color: var(--slate);
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    color: var(--green);
+}
+
+/* Hide sidebars on mobile and show footer links instead */
+@media screen and (max-width: 768px) {
+    .social-sidebar {
+        display: none;
+    }
+}
+
+/* Hide footer links on desktop to avoid redundancy with sidebars */
+@media screen and (min-width: 769px) {
+    .footer-socials {
+        display: none;
+    }
+}
