@@ -102,11 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Navigation
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
+    const navContainer = document.querySelector('nav');
     const navLinks = document.querySelectorAll('.nav-links li');
     const mobileBlurOverlay = document.querySelector('.mobile-blur-overlay');
 
     const closeMenu = () => {
         if (nav.classList.contains('active')) {
+            navContainer.classList.remove('nav-open');
             nav.classList.remove('active');
             burger.classList.remove('active');
             mobileBlurOverlay.classList.remove('active');
@@ -118,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleMenu = () => {
         const isActive = nav.classList.contains('active');
+        navContainer.classList.toggle('nav-open');
         if (isActive) {
             closeMenu();
         } else {

@@ -332,13 +332,11 @@ nav {
     .logo {
         margin-left: 0;
     }
-    .resume-button {
-        margin-right: 0;
-    }
 
     .burger {
         display: block;
         position: relative;
+        top: -2px;
         width: 1.5rem; /* Match logo font-size for symmetry */
         height: 1.5rem; /* Match logo font-size for symmetry */
         cursor: pointer;
@@ -452,8 +450,9 @@ nav {
 
     .burger .line1, .burger .line2, .burger .line3 {
         width: 100%;
-        height: 2px;
-        background: var(--green);
+        height: 0;
+        background: transparent;
+        border-top: 2px solid var(--green);
         border-radius: 2px;
         position: absolute;
         left: 0;
@@ -467,7 +466,7 @@ nav {
 
     .burger .line2 {
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-1px);
     }
 
     .burger .line3 {
@@ -476,7 +475,7 @@ nav {
 
     .burger.active .line1 {
         top: 50%;
-        transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-1px) rotate(45deg);
     }
 
     .burger.active .line2 {
@@ -485,13 +484,75 @@ nav {
 
     .burger.active .line3 {
         top: 50%;
-        transform: translateY(-50%) rotate(-45deg);
+        transform: translateY(-1px) rotate(-45deg);
     }
 
+    /* 1. Base style & position for the resume button on mobile */
     .resume-button {
-        margin: 0;
+        display: block;
+        position: fixed;
+        bottom: 4rem;
+        right: calc(75vw / 2);
+        z-index: 1002;
+
+        /* Initial state (hidden) */
         opacity: 0;
-        display: none;
+        transform: translateX(calc(50% + 20px)); /* Start off-center for slide-in */
+        pointer-events: none;
+        
+        /* Transition */
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        transition-delay: 0.3s; /* Delay to match link animation */
+
+        /* Copied styles for mobile context */
+        margin-bottom: 24px;
+        padding: 1.1rem 0;
+        width: calc(75vw - 5rem);
+        max-width: 340px;
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        background: transparent;
+        border: 1.5px solid var(--green);
+        border-radius: 12px;
+        color: var(--green);
+    }
+
+    /* 2. Style for the button when the menu is open */
+    nav.nav-open .resume-button {
+        display: block !important;
+        position: fixed !important;
+        bottom: 4rem !important;
+        right: calc(75vw / 2) !important;
+        z-index: 1103 !important; /* Above other elements */
+
+        /* Center the button */
+        transform: translateX(50%) !important;
+
+        /* Visibility & Animation */
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
+        transition-delay: 0.3s !important;
+
+        /* Consistent Styling */
+        margin-bottom: 24px !important;
+        padding: 1.1rem 0 !important;
+        width: calc(75vw - 5rem) !important;
+        max-width: 340px !important;
+        text-align: center !important;
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.03em !important;
+        background: transparent !important;
+        border: 1.5px solid var(--green) !important;
+        border-radius: 12px !important;
+        color: var(--green) !important;
+    }
+
+    nav.nav-open .resume-button:hover {
+        background: rgba(74, 158, 255, 0.10) !important;
     }
 
     .hero {
@@ -513,7 +574,7 @@ nav {
     }
 
     .tagline {
-        font-size: 2.5rem;
+        font-size: 1.25rem;
     }
 
     .description {
@@ -524,8 +585,10 @@ nav {
         display: none;
     }
 
+    /* === Definitive Mobile Resume Button === */
+    /* Hide the button in the collapsed mobile nav bar */
     .resume-button {
-        display: none;
+        display: none !important;
     }
 
     .mobile-blur-overlay {
@@ -552,7 +615,7 @@ nav {
 /* About Section */
 .about {
     min-height: 100vh;
-    padding: 100px 150px;
+    padding: 100px 0;
     max-width: 1000px;
     margin: 0 auto;
 }
