@@ -190,20 +190,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Typing Animation for Subtitle
-    const subtitle = document.querySelector('.subtitle');
-    const text = subtitle.textContent;
-    subtitle.textContent = '';
-    let index = 0;
+    // Typing Animation for Tagline
+    const tagline = document.querySelector('.tagline');
+    if (tagline) {
+        const text = tagline.textContent;
+        tagline.textContent = '';
+        let index = 0;
 
-    function typeWriter() {
-        if (index < text.length) {
-            subtitle.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 100);
+        function typeWriter() {
+            if (index < text.length) {
+                tagline.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
         }
-    }
 
-    // Start typing animation after a short delay
-    setTimeout(typeWriter, 1000);
+        // Start typing animation after a short delay
+        setTimeout(typeWriter, 1000);
+    }
 });
