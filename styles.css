@@ -130,24 +130,6 @@ nav {
     font-family: var(--font-mono);
 }
 
-.resume-button {
-    margin-right: 1.2rem;
-    /* Symmetrical to logo */
-    color: var(--green);
-    background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.resume-button:hover {
-    background-color: rgba(74, 158, 255, 0.1);
-    transform: translateY(-2px);
-}
-
 /* Social Sidebars */
 .social-sidebar {
     width: 40px;
@@ -427,34 +409,6 @@ nav {
         color: var(--green);
     }
 
-    .resume-button {
-        display: block;
-        position: absolute;
-        right: 2.5rem;
-        left: auto;
-        bottom: 2.5rem;
-        transform: none;
-        width: calc(75vw - 5rem);
-        max-width: 340px;
-        text-align: center;
-        font-size: 1.15rem;
-        padding: 1.1rem 0;
-        border-radius: 12px;
-        opacity: 1;
-        background: transparent;
-        border: 1.5px solid var(--green);
-        color: var(--green);
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        transition: background 0.2s, color 0.2s;
-        margin: 0;
-    }
-
-    .resume-button:hover {
-        background: rgba(74, 158, 255, 0.10);
-        color: var(--green);
-    }
-
     .burger {
         z-index: 1102;
     }
@@ -497,77 +451,6 @@ nav {
         transform: translateY(-1px) rotate(-45deg);
     }
 
-    /* 1. Base style & position for the resume button on mobile */
-    .resume-button {
-        display: block;
-        position: fixed;
-        bottom: 4rem;
-        right: calc(75vw / 2);
-        z-index: 1002;
-
-        /* Initial state (hidden) */
-        opacity: 0;
-        transform: translateX(calc(50% + 20px));
-        /* Start off-center for slide-in */
-        pointer-events: none;
-
-        /* Transition */
-        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-        transition-delay: 0.3s;
-        /* Delay to match link animation */
-
-        /* Copied styles for mobile context */
-        margin-bottom: 24px;
-        padding: 1.1rem 0;
-        width: calc(75vw - 5rem);
-        max-width: 340px;
-        text-align: center;
-        font-size: 1.15rem;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        background: transparent;
-        border: 1.5px solid var(--green);
-        border-radius: 12px;
-        color: var(--green);
-    }
-
-    /* 2. Style for the button when the menu is open */
-    nav.nav-open .resume-button {
-        display: block !important;
-        position: fixed !important;
-        bottom: 4rem !important;
-        right: calc(75vw / 2) !important;
-        z-index: 1103 !important;
-        /* Above other elements */
-
-        /* Center the button */
-        transform: translateX(50%) !important;
-
-        /* Visibility & Animation */
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
-        transition-delay: 0.3s !important;
-
-        /* Consistent Styling */
-        margin-bottom: 24px !important;
-        padding: 1.1rem 0 !important;
-        width: calc(75vw - 5rem) !important;
-        max-width: 340px !important;
-        text-align: center !important;
-        font-size: 1.15rem !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.03em !important;
-        background: transparent !important;
-        border: 1.5px solid var(--green) !important;
-        border-radius: 12px !important;
-        color: var(--green) !important;
-    }
-
-    nav.nav-open .resume-button:hover {
-        background: rgba(74, 158, 255, 0.10) !important;
-    }
-
     .hero {
         padding: 0 25px;
     }
@@ -596,12 +479,6 @@ nav {
 
     .social-sidebar {
         display: none;
-    }
-
-    /* === Definitive Mobile Resume Button === */
-    /* Hide the button in the collapsed mobile nav bar */
-    .resume-button {
-        display: none !important;
     }
 
     .mobile-blur-overlay {
@@ -1273,26 +1150,11 @@ nav {
     }
 
     .project-image {
-        display: block !important;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        margin: 0;
-        border-radius: 10px;
-        background-color: transparent;
-        box-shadow: none;
+        display: none !important;
     }
 
     .project-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.2;
-        filter: blur(10px) grayscale(100%);
-        border-radius: 10px;
+        display: none;
     }
 
     .project-card {
