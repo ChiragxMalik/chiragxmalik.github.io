@@ -130,6 +130,11 @@ nav {
     font-family: var(--font-mono);
 }
 
+/* Mobile Nav Pill (Hidden on Desktop) */
+.mobile-nav-pill {
+    display: none;
+}
+
 /* Social Sidebars */
 .social-sidebar {
     width: 40px;
@@ -311,144 +316,68 @@ nav {
         margin-left: 0;
     }
 
-    .burger {
-        display: block;
-        position: relative;
-        top: -2px;
-        width: 1.5rem;
-        /* Match logo font-size for symmetry */
-        height: 1.5rem;
-        /* Match logo font-size for symmetry */
-        cursor: pointer;
-        background: transparent;
-        border: none;
-        padding: 0;
+    header {
+        display: none !important;
     }
 
-    .nav-links {
-        align-items: flex-end;
-        text-align: right;
-        padding: 10rem 0 2.5rem;
-        /* Removed horizontal padding, added top/bottom */
-        right: 0;
-        left: auto;
-        width: 75vw;
-        min-width: 240px;
-        max-width: 400px;
-        height: 100vh;
+    /* Floating Pill Navigation */
+    .mobile-nav-pill {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 1rem;
         position: fixed;
-        top: 0;
-        background: rgba(31, 40, 51, 0.85);
-        backdrop-filter: blur(32px);
-        -webkit-backdrop-filter: blur(32px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* Align to top */
-        gap: 0;
-        opacity: 0;
-        pointer-events: none;
-        z-index: 1101;
-        border-radius: 0;
-        box-shadow: none;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease-in-out;
-        /* Smoother animation */
+        top: 770px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 360px;
+        height: 52px;
+        background: rgba(11, 12, 16, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+        z-index: 1200;
     }
 
-    .nav-links.active {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateX(0);
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: right;
-        margin: 0;
-        padding: 0 2.5rem;
-        /* Added horizontal padding */
-        margin-bottom: 2.5rem;
+    .mobile-nav-item {
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
+        text-decoration: none;
+        color: var(--slate);
+        transition: color 0.3s ease;
+        flex: 1;
+        height: 100%;
+        padding: 0.5rem 0;
     }
 
-    .nav-links li:last-child {
-        margin-bottom: 0;
+    .mobile-nav-item i {
+        font-size: 1.2rem;
+        color: var(--lightest-slate);
+        transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .nav-links a {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-        width: 100%;
-        padding: 0;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 1.5rem;
-        letter-spacing: 0.03em;
-        line-height: 1.2;
-        background: none;
-        transition: background 0.2s, color 0.2s;
-        text-align: right;
-    }
-
-    .nav-links a span {
-        display: block;
-        font-size: 1.1rem;
-        margin-bottom: 0.2rem;
-        font-family: var(--font-mono, monospace);
+    .mobile-nav-item.mobile-logo {
+        font-size: 1.25rem;
         font-weight: 700;
-    }
-
-    .nav-links a:hover {
-        background: rgba(74, 158, 255, 0.10);
         color: var(--green);
+        font-family: var(--font-sans);
+        transition: transform 0.3s ease;
     }
 
-    .burger {
-        z-index: 1102;
+    .mobile-nav-item:hover i,
+    .mobile-nav-item:active i {
+        color: var(--green);
+        transform: translateY(-2px);
     }
 
-    .burger .line1,
-    .burger .line2,
-    .burger .line3 {
-        width: 100%;
-        height: 0;
-        background: transparent;
-        border-top: 2px solid var(--green);
-        border-radius: 2px;
-        position: absolute;
-        left: 0;
-        transition: all 0.3s ease-in-out;
-        transform-origin: center;
-    }
-
-    .burger .line1 {
-        top: 35%;
-    }
-
-    .burger .line2 {
-        top: 65%;
-        transform: translateY(-1px);
-    }
-
-    .burger .line3 {
-        bottom: 25%;
-    }
-
-    .burger.active .line1 {
-        top: 50%;
-        transform: translateY(-1px) rotate(45deg);
-    }
-
-    .burger.active .line2 {
-        top: 50%;
-        opacity: 1;
-        transform: translateY(-1px) rotate(-45deg);
+    .mobile-nav-item.mobile-logo:hover,
+    .mobile-nav-item.mobile-logo:active {
+        color: var(--dark-green);
+        transform: translateY(-2px);
     }
 
     .hero {
@@ -505,8 +434,8 @@ nav {
 /* About Section */
 .about {
     min-height: 100vh;
-    padding: 100px 0;
-    max-width: 1000px;
+    padding: 100px 150px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -660,11 +589,35 @@ nav {
 @media screen and (max-width: 768px) {
     .about {
         padding: 60px 25px;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
+    }
+
+    .about-text {
+        padding: 0;
+        width: 100%;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .section-heading {
+        font-size: 1.75rem;
+        margin: 10px 0 30px 0;
+    }
+
+    .section-heading span {
+        font-size: 1.25rem;
     }
 
     .section-heading::after {
@@ -823,6 +776,8 @@ nav {
 @media screen and (max-width: 768px) {
     .experience {
         padding: 60px 25px;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .experience-content {
@@ -856,6 +811,15 @@ nav {
         bottom: 0;
         width: 100%;
         height: 2px;
+    }
+
+    .tab-content h3 {
+        font-size: 1.15rem;
+    }
+
+    .job-description li {
+        padding-left: 30px;
+        font-size: 0.95rem;
     }
 
     .experience-details {
@@ -1022,7 +986,7 @@ nav {
 
 
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 769px) and (max-width: 1440px) {
 
     /* Laptop Optimization (13", 14" screens) */
     section {
@@ -1089,7 +1053,7 @@ nav {
     }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (min-width: 769px) and (max-width: 1080px) {
     .projects {
         padding: 80px 100px;
         /* Restored to 100px for consistent scaling */
