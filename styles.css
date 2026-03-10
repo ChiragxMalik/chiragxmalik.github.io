@@ -328,7 +328,7 @@ nav {
         padding: 0 1rem;
         position: fixed;
         top: auto;
-        bottom: 20px;
+        bottom: 15px;
         left: 50%;
         transform: translateX(-50%);
         width: 85%;
